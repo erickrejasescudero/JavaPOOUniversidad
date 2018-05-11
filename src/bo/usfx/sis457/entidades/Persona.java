@@ -63,6 +63,9 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "CarnetIdentidad=" + CarnetIdentidad + ", Nombre=" + Nombre + ", FechaNacimiento=" + FechaNacimiento + '}';
+        return "Persona{" 
+                + "CarnetIdentidad=" + CarnetIdentidad 
+                + ", Nombre=" + Nombre 
+                + ", FechaNacimiento=" + FechaNacimiento + '}';
     }
 }

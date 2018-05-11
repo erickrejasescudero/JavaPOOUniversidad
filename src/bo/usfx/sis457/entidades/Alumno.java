@@ -16,18 +16,21 @@ import java.util.GregorianCalendar;
 public class Alumno extends Persona {
     protected String CarnetUniversitario;
     protected int Semestre;
+    protected String[] Asignatura;
     
-    public Alumno(String carnetUniversitario, int semestre, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
+    public Alumno(String carnetUniversitario, int semestre, String[] asignatura, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
         super(carnetIdentidad, nombre, fechaNacimiento);
         this.CarnetUniversitario = carnetUniversitario;
         this.Semestre = semestre;
+        this.Asignatura = asignatura;
         //System.out.println("Se crea un Alumno");
     }
     
-    public Alumno(String carnetUniversitario, int semestre) {
+    public Alumno(String carnetUniversitario, int semestre, String[] asignatura) {
         super();
         this.CarnetUniversitario = carnetUniversitario;
         this.Semestre = semestre;
+        this.Asignatura = asignatura;
         //System.out.println("Se crea un Alumno");
     }
     
@@ -46,6 +49,14 @@ public class Alumno extends Persona {
     public void setSemestre(int semestre) {
         this.Semestre = semestre;
     }
+    
+    public String[] getAsignatura() {
+        return Asignatura;
+    }
+
+    public void setAsignatura(String[] Asignatura) {
+        this.Asignatura = Asignatura;
+    }
 
     @Override
     public String toString() {
@@ -55,6 +66,7 @@ public class Alumno extends Persona {
                 + ", Nombre=" + this.Nombre 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
                 + ", CarnetUniversitario=" + this.CarnetUniversitario 
-                + ", Semestre=" + this.Semestre + '}';
+                + ", Semestre=" + this.Semestre
+                + ", Asignaturas=" + this.Asignatura + '}';
     }
 }

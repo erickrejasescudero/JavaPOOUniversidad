@@ -6,37 +6,33 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
+import java.util.Arrays;
 import java.util.Calendar;
 
 /**
  *
  * @author Marcelo
  */
-public class Profesor extends Persona {
-    protected String Contrato;
+public class Docente extends Persona {
     protected String Titulo;
+    protected int AñosExperiencia;
+    protected String[] Asignaturas;
  
-    public Profesor(String contrato, String titulo, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
+    public Docente(String titulo, int añosExperiencia, String[] asignaturas, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
         super(carnetIdentidad, nombre, fechaNacimiento);
-        this.Contrato = contrato;
         this.Titulo = titulo;
+        this.AñosExperiencia = añosExperiencia;
+        this.Asignaturas = asignaturas;
     }
 
-    public Profesor(String contrato, String titulo) {
-        this.Contrato = contrato;
+    public Docente(String titulo, int añosExperiencia, String[] asignaturas) {
         this.Titulo = titulo;
+        this.AñosExperiencia = añosExperiencia;
+        this.Asignaturas = asignaturas;
     }
 
-    public Profesor() {
+    public Docente() {
         
-    }
-
-    public String getContrato() {
-        return Contrato;
-    }
-
-    public void setContrato(String Contrato) {
-        this.Contrato = Contrato;
     }
 
     public String getTitulo() {
@@ -46,15 +42,33 @@ public class Profesor extends Persona {
     public void setTitulo(String Titulo) {
         this.Titulo = Titulo;
     }
+    
+    public int getAñosExperiencia() {
+        return AñosExperiencia;
+    }
+
+    public void setAñosExperiencia(int AñosExperiencia) {
+        this.AñosExperiencia = AñosExperiencia;
+    }
+    
+    public String[] getAsignaturas() {
+        return Asignaturas;
+    }
+
+    public void setAsignaturas(String[] Asignaturas) {
+        this.Asignaturas = Asignaturas;
+    }
 
     @Override
     public String toString() {
-        return "Profesor{" 
+        return "Docente{" 
                 + "Id=" + this.Id 
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Contrato=" + Contrato + ", Titulo=" + Titulo + '}';
+                + ", Titulo=" + this.Titulo
+                + ", AñosExperiencia=" + this.AñosExperiencia
+                + ", Asignaturas=" + this.Asignaturas + '}';
     }
     
 }
