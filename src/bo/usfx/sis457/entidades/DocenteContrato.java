@@ -42,7 +42,7 @@ public class DocenteContrato extends Docente {
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
                 + ", Titulo=" + this.Titulo
                 + ", AñosExperiencia" + this.AñosExperiencia
-                + ", Asignaturas" + this.Asignaturas 
+                + ", Asignaturas" + Arrays.toString(this.Asignaturas) 
                 + ", NumeroContrato" + this.NumeroContrato + '}';
     }
     

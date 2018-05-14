@@ -6,6 +6,7 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -31,6 +32,17 @@ public class Alumno extends Persona {
         this.CarnetUniversitario = carnetUniversitario;
         this.Semestre = semestre;
         this.Asignatura = asignatura;
+        //System.out.println("Se crea un Alumno");
+    }
+    
+    public Alumno(String carnetUniversitario, int semestre) {
+        super();
+        this.CarnetUniversitario = carnetUniversitario;
+        this.Semestre = semestre;
+        //System.out.println("Se crea un Alumno");
+    }
+    
+    public Alumno() {
         //System.out.println("Se crea un Alumno");
     }
     
@@ -67,6 +79,6 @@ public class Alumno extends Persona {
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
                 + ", CarnetUniversitario=" + this.CarnetUniversitario 
                 + ", Semestre=" + this.Semestre
-                + ", Asignaturas=" + this.Asignatura + '}';
+                + ", Asignaturas=" + Arrays.toString(this.Asignatura) + '}';
     }
 }

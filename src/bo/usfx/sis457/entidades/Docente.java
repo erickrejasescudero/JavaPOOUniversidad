@@ -23,15 +23,31 @@ public class Docente extends Persona {
         this.Titulo = titulo;
         this.AñosExperiencia = añosExperiencia;
         this.Asignaturas = asignaturas;
+        //System.out.println("Se crea un Docente");
+    }
+    
+    public Docente(String titulo, int añosExperiencia, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
+        super(carnetIdentidad, nombre, fechaNacimiento);
+        this.Titulo = titulo;
+        this.AñosExperiencia = añosExperiencia;
+        //System.out.println("Se crea un Docente");
     }
 
     public Docente(String titulo, int añosExperiencia, String[] asignaturas) {
         this.Titulo = titulo;
         this.AñosExperiencia = añosExperiencia;
         this.Asignaturas = asignaturas;
+        //System.out.println("Se crea un Docente");
+    }
+    
+    public Docente(String titulo, int añosExperiencia) {
+        this.Titulo = titulo;
+        this.AñosExperiencia = añosExperiencia;
+        //System.out.println("Se crea un Docente");
     }
 
     public Docente() {
+        //System.out.println("Se crea un Docente");
         
     }
 
@@ -68,7 +84,7 @@ public class Docente extends Persona {
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
                 + ", Titulo=" + this.Titulo
                 + ", AñosExperiencia=" + this.AñosExperiencia
-                + ", Asignaturas=" + this.Asignaturas + '}';
+                + ", Asignaturas=" + Arrays.toString(this.Asignaturas) + '}';
     }
     
 }

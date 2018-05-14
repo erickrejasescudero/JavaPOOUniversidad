@@ -23,12 +23,12 @@ public class POOHerenciaEjemplo {
     public static void main(String[] args) {
         personas = new ArrayList<>();
         
-       //personas.add(new Alumno("35-1", 1));
-        //personas.add(new Docente("1", "Licenciado en Informática", "222222", "Juan Perez", new GregorianCalendar(1980, 11,01)));
-        //personas.add(new Alumno("35-2", 1));
-        //personas.add(new Alumno("35-3", 1));
-        //personas.add(new Docente("2", "Ingeniero de Sistemas"));
-        //personas.add(new Alumno("35-4", 1));
+       personas.add(new Alumno("35-1", 1));
+        personas.add(new Docente("Licenciado en Informática", 1 , "222222", "Juan Perez", new GregorianCalendar(1980, 11,01)));
+        personas.add(new Alumno("35-2", 1));
+        personas.add(new Alumno("35-3", 1));
+        personas.add(new Docente("Ingeniero de Sistemas",2));
+        personas.add(new Alumno("35-4", 1));
         
         menuPrincipal();
     }
@@ -378,8 +378,8 @@ public class POOHerenciaEjemplo {
             System.out.print("Introduzca el Título: ");
             titulo = entradaTeclado.readLine();
             Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
-            Calendar fechaNacimientoC = Calendar.getInstance();
-            fechaNacimientoC.setTime(fechaNacimientoDate);
+            Calendar fechaNacimientoCalendario = Calendar.getInstance();
+            fechaNacimientoCalendario.setTime(fechaNacimientoDate);
             int opcion;
             System.out.print("1: Docente Titular \n 2: Docente con Contrato \n elija opcion \n: ");
             opcion = Integer.parseInt(entradaTeclado.readLine());
@@ -387,13 +387,13 @@ public class POOHerenciaEjemplo {
                 case 1:
                     System.out.print("Introduzca examen de competencia: ");
                     examenCompetencia = entradaTeclado.readLine();
-                    personas.add(new DocenteTitular( examenCompetencia, titulo, añosExperiencia, asignaturas, carnetIdentidad, nombre, fechaNacimientoC));
+                    personas.add(new DocenteTitular( examenCompetencia, titulo, añosExperiencia, asignaturas, carnetIdentidad, nombre, fechaNacimientoCalendario));
                     break;
                     
                 case 2:
                     System.out.print("Introduzca numero de contrato: ");
                     numeroContrato = entradaTeclado.readLine();
-                    personas.add(new DocenteContrato(numeroContrato, titulo, añosExperiencia, asignaturas, carnetIdentidad, nombre, fechaNacimientoC));
+                    personas.add(new DocenteContrato(numeroContrato, titulo, añosExperiencia, asignaturas, carnetIdentidad, nombre, fechaNacimientoCalendario));
                     break;
             }
             System.out.println("Registro de Docente correcto");
@@ -424,7 +424,7 @@ public class POOHerenciaEjemplo {
                 Calendar fechaNacimientoCalendario = Calendar.getInstance();
                 fechaNacimientoCalendario.setTime(fechaNacimientoDate);
                 docente.setFechaNacimiento(fechaNacimientoCalendario);
-                System.out.print("Modificar Asignaturas '" + docente.getAsignaturas()+ "': ");
+                System.out.print("Modificar Asignaturas '" + Arrays.toString(docente.getAsignaturas())+ "': ");
                 docente.setAsignaturas(insertar());
                 System.out.print("Introduzca el Título Universitario: ");
                 docente.setTitulo(entradaTeclado.readLine());
@@ -564,23 +564,22 @@ public class POOHerenciaEjemplo {
             System.out.print("Introduzca el CU: ");
             carnetUniversitario = entradaTeclado.readLine();
             System.out.print("Introduzca el Semestre: ");
-            
-            int c;
+            semestre = Integer.parseInt(entradaTeclado.readLine());
             System.out.print("Introducir la cantidad de materias que cursa el alumno: ");
+            int c;
             int i = Integer.parseInt(entradaTeclado.readLine());
             String[] asignaturas = new String[i];
             
             for(c=0;c<i;c++){
-                System.out.print("Introduzca asignaturas: " );
+                System.out.print("Introduzca asignatura: " );
                 asignaturas[c] = entradaTeclado.readLine();
             }
             
-            semestre = Integer.parseInt(entradaTeclado.readLine());
             Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
             Calendar fechaNacimientoCalendario = Calendar.getInstance();
             fechaNacimientoCalendario.setTime(fechaNacimientoDate);
             personas.add(new Alumno(carnetUniversitario, semestre, asignaturas, carnetIdentidad, nombre, fechaNacimientoCalendario));
-            System.out.println("Registro de Profesor completado!");
+            System.out.println("Registro de Alumno completado!");
         } catch(Exception ex) {
             System.out.println("Error: " + ex.getMessage());
         }
@@ -612,14 +611,14 @@ public class POOHerenciaEjemplo {
             System.out.println("Introduzca la Fecha de ingreso (ejemplo; 2000-01-01): ");
             fechaIngreso = entradaTeclado.readLine();
             Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
-            Calendar fechaNacimientoC = Calendar.getInstance();
-            fechaNacimientoC.setTime(fechaNacimientoDate);
+            Calendar fechaNacimientoCalendario = Calendar.getInstance();
+            fechaNacimientoCalendario.setTime(fechaNacimientoDate);
             
             Date fechaIngresoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaIngreso);
             Calendar fechaIngresoCalendario = Calendar.getInstance();
             fechaIngresoCalendario.setTime(fechaIngresoDate);
             
-            personas.add(new Administrativo(cargo, lugarTrabajo, fechaIngresoCalendario, carnetIdentidad, nombre, fechaNacimientoC));
+            personas.add(new Administrativo(cargo, lugarTrabajo, fechaIngresoCalendario, carnetIdentidad, nombre, fechaNacimientoCalendario));
             System.out.println("Registro de Administrativo completado!");
         } catch(Exception ex) {
             System.out.println("Error: " + ex.getMessage());
